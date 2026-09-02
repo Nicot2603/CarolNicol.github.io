@@ -1,12 +1,12 @@
 # Carol Nicol Clavijo Bonilla
 
-Desarrolladora Web & UI/UX Designer | Estudiante de Ingeniería en Software
+Desarrolladora Web & UI/UX Designer | Estudiante de Ingeniería en Software - Séptimo Período | Universitaria de Colombia
 
 ---
 
 ## Sobre mí
 
-Soy una desarrolladora web apasionada por la creación de aplicaciones y plataformas digitales que combinan diseño funcional con excelente experiencia de usuario. Me especializo en el desarrollo front-end moderno, utilizando tecnologías actuales como React, Tailwind CSS y metodologías de diseño UI/UX.
+Soy una estudiante de **Ingeniería en Software en séptimo período** en la **Universitaria de Colombia**, apasionada por la creación de aplicaciones y plataformas digitales que combinan diseño funcional con excelente experiencia de usuario. Me especializo en el desarrollo front-end moderno, utilizando tecnologías actuales como React, Tailwind CSS y metodologías de diseño UI/UX.
 
 ---
 
@@ -139,11 +139,9 @@ Universitaria de Colombia
 
 ---
 
-## Contacto
+### Contacto
 
-📱 **Teléfono:** +57 3203458316
-
-📧 **GitHub:** [github.com/CarolNicol](https://github.com/CarolNicol)
+📧 **GitHub:** [github.com/Nicot2603](https://github.com/Nicot2603)
 
 🌐 **Portfolio:** [CarolNicol.github.io](https://carolnicol.github.io)
 
