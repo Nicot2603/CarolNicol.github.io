@@ -3,21 +3,580 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
+    <title>Carol Nicol Clavijo Bonilla | Portafolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #64ffda, #48c9b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #ccd6f6;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #8892b0;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: transparent;
+            border: 2px solid #64ffda;
+            color: #64ffda;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background: #64ffda;
+            color: #0f0f23;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ccd6f6;
+        }
+
+        .section-title span {
+            color: #64ffda;
+        }
+
+        /* Experience */
+        .experience-card {
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .experience-card h3 {
+            color: #64ffda;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-card .date {
+            color: #8892b0;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-card li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #a8b2d1;
+        }
+
+        .experience-card li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #64ffda;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #1a1f35;
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            color: #ccd6f6;
+            font-size: 1.3rem;
+        }
+
+        .project-card .project-icon {
+            color: #64ffda;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: #8892b0;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-card .tech-stack span {
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-card .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-card .project-links a {
+            color: #8892b0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .project-card .project-links a:hover {
+            color: #64ffda;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category h3 {
+            color: #64ffda;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            padding: 10px 0;
+            color: #a8b2d1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-list li i {
+            color: #64ffda;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-section p {
+            color: #8892b0;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #8892b0;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: #64ffda;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            color: #8892b0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hola, soy Carol Nicol CLavijo Bonilla</h1>
-    <p>Estudiante de ingenieria en software y desarrollo web</p>
+    <header>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
 
-    <h2>Proyectos</h2>
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Carol Nicol Clavijo Bonilla</h1>
+            <h2>Desarrolladora Web & UI/UX Designer</h2>
+            <p>Estudiante de Ingeniería en Software apasionada por crear experiencias digitales modernas y funcionales. Especializada en React, Tailwind CSS y diseño de interfaces de usuario.</p>
+            <div>
+                <a href="#proyectos" class="btn">Ver Proyectos</a>
+                <a href="#contacto" class="btn">Contacto</a>
+            </div>
+        </div>
+    </section>
 
-    <ul>
-        <li>Proyecto 1 -Diseño web de una Bolsa de empleo</li>
-        <li>Proyecto 2 - Diseño web de un Block</li>
-        <li>Proyecto 3 - Diseño web de aplicativo Amigo IA</li>
-    </ul>
+    <section id="experiencia">
+        <div class="container">
+            <h2 class="section-title">Experiencia <span>Profesional</span></h2>
+            
+            <div class="experience-card">
+                <h3>Semillero de Investigación - Universitaria de Colombia</h3>
+                <p class="date">Desarrolladora Front-End | Octubre 2024 - Junio 2025</p>
+                <ul>
+                    <li>Desarrollé una plataforma de Bolsa de Empleo para la universidad</li>
+                    <li>Diseñé la interfaz de usuario en Figma antes del desarrollo</li>
+                    <li>Implementé la solución utilizando React.js con arquitectura de componentes</li>
+                    <li>Aplicé Tailwind CSS para estilos responsivos y modernos</li>
+                    <li>Trabajé en equipo siguiendo metodologías ágiles de desarrollo</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <h2>Contacto</h2>
-    <p>Email: correo@ejemplo.com</p>
+    <section id="proyectos">
+        <div class="container">
+            <h2 class="section-title">Proyectos <span>Destacados</span></h2>
+            
+            <div class="projects-grid">
+                <!-- Juego Mario Bros -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Juego Estilo Mario Bros</h3>
+                        <i class="fas fa-gamepad project-icon"></i>
+                    </div>
+                    <p>Videojuego clásico de plataformas inspirado en el icónico Mario Bros. Desarrollado con React, Phaser.js y HTML5 Canvas con física y mecánicas de juego auténticas.</p>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>Phaser.js</span>
+                        <span>JavaScript</span>
+                        <span>Canvas</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/CarolNicol/Juego-estilo-Mario-Bros" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Red Colombia -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Red Colombia - Ingeniería S.A.S</h3>
+                        <i class="fas fa-globe project-icon"></i>
+                    </div>
+                    <p>Diseño y desarrollo completo del sitio web corporativo para empresa de ingeniería. Implementación de diseño moderno, responsivo y optimizado para todos los dispositivos.</p>
+                    <div class="tech-stack">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Diseño Responsivo</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://redescolombia.com.co" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Sitio Web
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bolsa de Empleo -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>ValleProjects - Bolsa de Empleo</h3>
+                        <i class="fas fa-briefcase project-icon"></i>
+                    </div>
+                    <p>Plataforma de empleo diseñada para conectar candidatos con oportunidades laborales. Diseño UI/UX en Figma y desarrollo con React y Tailwind CSS.</p>
+                    <div class="tech-stack">
+                        <span>React.js</span>
+                        <span>Tailwind CSS</span>
+                        <span>JavaScript</span>
+                        <span>Figma</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/CarolNicol/CarolNicol.github.io/tree/main/Bolsa%20de%20empleo" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Shop HUD -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Shop HUD</h3>
+                        <i class="fas fa-shopping-cart project-icon"></i>
+                    </div>
+                    <p>Tienda en línea con interfaz moderna y organizada. Diseño atractivo para e-commerce con presentación de productos y navegación intuitiva.</p>
+                    <div class="tech-stack">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://shop-hud.vercel.app" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Conjunto One -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Conjunto One</h3>
+                        <i class="fas fa-parking project-icon"></i>
+                    </div>
+                    <p>Sistema de gestión de parqueaderos para conjuntos residenciales. Control y administración de vehículos optimizando registro y seguimiento.</p>
+                    <div class="tech-stack">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://conjunto-one.vercel.app" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- EcoRuta -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>EcoRuta</h3>
+                        <i class="fas fa-route project-icon"></i>
+                    </div>
+                    <p>Plataforma orientada a repartidores y gestión de rutas sostenibles. Optimización de rutas de entrega con enfoque en eficiencia.</p>
+                    <div class="tech-stack">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://ecoruta.vercel.app" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Rincón Indie -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Rincón Indie</h3>
+                        <i class="fas fa-gamepad project-icon"></i>
+                    </div>
+                    <p>Blog especializado en videojuegos independientes. Plataforma de contenido con noticias, recomendaciones y reseñas.</p>
+                    <div class="tech-stack">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://rincon-indie.vercel.app" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <div class="container">
+            <h2 class="section-title">Habilidades <span>Técnicas</span></h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Front-End</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-react"></i> React.js</li>
+                        <li><i class="fab fa-js"></i> JavaScript (ES6+)</li>
+                        <li><i class="fab fa-html5"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                        <li><i class="fas fa-wind"></i> Tailwind CSS</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Diseño</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-figma"></i> Figma</li>
+                        <li><i class="fas fa-mobile-alt"></i> UI/UX Design</li>
+                        <li><i class="fas fa-desktop"></i> Diseño Responsivo</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Herramientas</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-git-alt"></i> Git</li>
+                        <li><i class="fab fa-github"></i> GitHub</li>
+                        <li><i class="fab fa-docker"></i> Docker</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Game Development</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-dragon"></i> Phaser.js</li>
+                        <li><i class="fas fa-palette"></i> HTML5 Canvas</li>
+                        <li><i class="fas fa-code"></i> Game Logic</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Trabajemos <span>Juntos</span></h2>
+            <p>¿Tienes un proyecto en mente? Me encantaría escuchar sobre él.</p>
+            
+            <div class="contact-links">
+                <a href="tel:+573203458316">
+                    <i class="fas fa-phone"></i> +57 3203458316
+                </a>
+                <a href="https://github.com/CarolNicol" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="mailto:carol.clavijo@email.com">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Carol Nicol Clavijo Bonilla. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
